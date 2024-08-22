@@ -1,0 +1,27 @@
+name: Test
+
+on:
+  issue_comment:
+    types: [created]
+
+
+jobs:
+  test_workflow:
+    if: |
+      github.event.issue.pull_request &&
+      github.event.comment.body == '/testin'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+    # Checkout only the changed data files
+    - name: Test
+      run: |
+        echo $DEET
+        echo $DOOT
+        echo $DUUT
+      env:
+        DEET: ${{ github.event.issue.pull_request.head.repo.full_name }}
+        DOOT: ${{ github.event.pull_request.head.repo.full_name }}
+        DUUT: ${{ github.event.repository.full_name }}
