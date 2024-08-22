@@ -22,6 +22,6 @@ jobs:
         echo $DOOT
         echo $DUUT
       env:
-        DEET: ${{ github.event.issue.pull_request.head.repo.full_name }}
+        DEET: ${{ github.event.issue.author_association }}
         DOOT: ${{ github.event.pull_request.head.repo.full_name }}
         DUUT: ${{ github.event.repository.full_name }}
