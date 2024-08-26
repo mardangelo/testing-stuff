@@ -7,11 +7,10 @@ on:
 
 jobs:
   test_workflow:
-  if: |
+    if: |
       contains('["OWNER", "COLLABORATOR", "MEMBER"]', github.event.issue.author_association) &&
       github.event.issue.pull_request &&
-      github.event.comment.body == '/testin'
-      
+      github.event.comment.body == '/testin'  
     runs-on: ubuntu-latest
     permissions:
       contents: read
