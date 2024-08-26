@@ -8,7 +8,7 @@ on:
 jobs:
   test_workflow:
     if: |
-      github.event.issue.author_association == 'COLLABORATOR' &&
+      github.event.comment.author_association == 'COLLABORATOR' &&
       github.event.issue.pull_request &&
       github.event.comment.body == '/testin'  
     runs-on: ubuntu-latest
