@@ -8,7 +8,7 @@ on:
 jobs:
   test_workflow:
     if: |
-      github.event.comment.author_association == 'COLLABORATOR' &&
+      contains(fromJSON('["OWNER", "CONTRIBUTOR", "MEMBER"]'), github.event.comment.author_association) &&
       github.event.issue.pull_request &&
       github.event.comment.body == '/testin'  
     runs-on: ubuntu-latest
